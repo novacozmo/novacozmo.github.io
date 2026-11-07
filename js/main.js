@@ -153,8 +153,8 @@ document.querySelectorAll('a[href^="#video-"]').forEach(link => {
 // Footer year
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// Starfield background. Twinkles at ~30fps; static for visitors who asked for
-// reduced motion; stops while the tab is hidden.
+// Starfield background. A slow shimmer drawn at ~20fps; static for visitors who
+// asked for reduced motion; stops while the tab is hidden.
 const canvas = document.getElementById('starfield');
 const ctx = canvas.getContext('2d');
 let stars = [];
@@ -170,7 +170,8 @@ function resize() {
     y: Math.random() * canvas.height,
     r: Math.random() * 1.3 + 0.2,
     phase: Math.random() * Math.PI * 2,
-    speed: Math.random() * 0.015 + 0.005
+    // radians per millisecond: one slow shimmer every ~3-12 seconds
+    speed: Math.random() * 0.0015 + 0.0005
   }));
   if (!running) paint(0);
 }
@@ -190,7 +191,7 @@ function paint(time) {
 
 function loop(time) {
   if (!running) return;
-  if (time - lastFrame >= 33) {
+  if (time - lastFrame >= 50) { // ~20fps is plenty for a slow shimmer
     paint(time);
     lastFrame = time;
   }

@@ -47,6 +47,17 @@ document.querySelectorAll('.video-thumb').forEach(link => {
   });
 });
 
+// "Watch" links and project thumbnails: jump to the matching video and start it.
+document.querySelectorAll('a[href^="#video-"]').forEach(link => {
+  link.addEventListener('click', e => {
+    const card = document.querySelector(link.getAttribute('href'));
+    if (!card) return;
+    e.preventDefault();
+    card.querySelector('.video-thumb')?.click();
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+});
+
 // Footer year
 document.getElementById('year').textContent = new Date().getFullYear();
 

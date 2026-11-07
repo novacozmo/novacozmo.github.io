@@ -5,11 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NovaCozmo — Astrophysics &amp; Space Engineering Portfolio</title>
 <meta name="description" content="Portfolio of an aspiring astrophysicist: GPU-accelerated N-body simulations, orbital mechanics, black hole ray tracing, and rocketry.">
+<link rel="canonical" href="https://novacozmo.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NovaCozmo">
+<meta property="og:url" content="https://novacozmo.github.io/">
+<meta property="og:title" content="NovaCozmo — Astrophysics &amp; Space Engineering Portfolio">
+<meta property="og:description" content="Portfolio of an aspiring astrophysicist: GPU-accelerated N-body simulations, orbital mechanics, black hole ray tracing, and rocketry.">
+<meta property="og:image" content="https://i.ytimg.com/vi/dekreIWrQXQ/maxresdefault.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta property="og:image:alt" content="A galaxy simulated with two million particles">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NovaCozmo — Astrophysics &amp; Space Engineering Portfolio">
+<meta name="twitter:description" content="Portfolio of an aspiring astrophysicist: GPU-accelerated N-body simulations, orbital mechanics, black hole ray tracing, and rocketry.">
+<meta name="twitter:image" content="https://i.ytimg.com/vi/dekreIWrQXQ/maxresdefault.jpg">
+<link rel="preconnect" href="https://i.ytimg.com">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪐</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=8">
+<link rel="stylesheet" href="css/style.css?v=9">
 </head>
 <body>
 
@@ -33,6 +48,7 @@
 <main>
   <section id="top" class="hero">
     <div class="hero-content container">
+      <div class="hero-text">
       <p class="eyebrow">Aspiring Astrophysicist &middot; High School Student</p>
       <h1>Building tomorrow's<br><span class="gradient-text">space science</span>, today.</h1>
       <p class="hero-sub">
@@ -43,6 +59,15 @@
       <div class="hero-actions">
         <a href="#projects" class="btn btn-primary">View My Projects</a>
         <a href="https://github.com/novacozmo" target="_blank" rel="noopener" class="btn btn-ghost">GitHub ↗</a>
+      </div>
+      </div>
+      <div class="hero-visual">
+        <a class="video-thumb" href="https://www.youtube.com/watch?v=dekreIWrQXQ" data-video-id="dekreIWrQXQ" data-video-title="2,000,000 Particle N-Body Sim" target="_blank" rel="noopener" aria-label="Play video: 2,000,000 Particle N-Body Sim">
+          <img src="https://i.ytimg.com/vi/dekreIWrQXQ/maxresdefault.jpg" alt="" width="1280" height="720" fetchpriority="high">
+          <span class="play-icon" aria-hidden="true">&#9658;</span>
+          <span class="video-duration">1:40</span>
+        </a>
+        <p class="hero-caption">2,000,000 Particle N-Body Sim</p>
       </div>
     </div>
     <div class="scroll-hint" aria-hidden="true">scroll</div>
@@ -118,12 +143,16 @@
               <span class="timeline-dot" aria-hidden="true"></span>
               <h4>BH N-Body</h4>
               <p class="project-tags">Python &middot; Taichi (GPU) &middot; Custom Parallel Radix Sort</p>
+              <a class="project-thumb" href="#video-dekreIWrQXQ" aria-label="Watch the video: 2,000,000 Particle N-Body Sim">
+                <img src="https://i.ytimg.com/vi/dekreIWrQXQ/hqdefault.jpg" alt="" width="480" height="360" loading="lazy">
+                <span class="play-icon" aria-hidden="true">&#9658;</span>
+              </a>
               <p>
                 A multiple months-long project using the GPU and parallel algorithms to maximize performance. While the physics and integration remained the same, the increased performance allows for millions of particles. Comes with multiple visualizer modes and a built in recorder.
               </p>
               <div class="project-links">
                 <a href="https://github.com/novacozmo/Gravity-Simulations/blob/main/Nbody/BarnesHutNBodySim.py" target="_blank" rel="noopener">Code ↗</a>
-                <a href="https://www.youtube.com/watch?v=dekreIWrQXQ" target="_blank" rel="noopener">2M-Particle Demo ↗</a>
+                <a href="#video-dekreIWrQXQ">Watch &#9658;</a>
               </div>
             </li>
           </ol>
@@ -172,11 +201,16 @@
               <span class="timeline-dot" aria-hidden="true"></span>
               <h4>Saturn Ring Sim</h4>
               <p class="project-tags">Python &middot; Taichi (GPU) &middot; Wisdom&ndash;Holman Integration</p>
+              <a class="project-thumb" href="#video-YzGZ8e7G1Dc" aria-label="Watch the video: 30m Resonance Simulation Run">
+                <img src="https://i.ytimg.com/vi/YzGZ8e7G1Dc/hqdefault.jpg" alt="" width="480" height="360" loading="lazy">
+                <span class="play-icon" aria-hidden="true">&#9658;</span>
+              </a>
               <p>
                 An attempt to simulate Saturn&rsquo;s rings using Wisdom Holman integration for long-term orbital stability and statistical collisions. Also has a radial density plot.
               </p>
               <div class="project-links">
                 <a href="https://github.com/novacozmo/Gravity-Simulations/blob/main/Ringsim/Saturn%20Ring%20Sim.py" target="_blank" rel="noopener">Code ↗</a>
+                <a href="#video-YzGZ8e7G1Dc">Watch &#9658;</a>
               </div>
             </li>
           </ol>
@@ -214,6 +248,10 @@
               <span class="timeline-dot" aria-hidden="true"></span>
               <h4>Black Hole Merger</h4>
               <p class="project-tags">Julia &middot; CUDA.jl</p>
+              <a class="project-thumb" href="#video-I2a5Eya_2Uo" aria-label="Watch the video: Black Hole Merger">
+                <img src="https://i.ytimg.com/vi/I2a5Eya_2Uo/hqdefault.jpg" alt="" width="480" height="360" loading="lazy">
+                <span class="play-icon" aria-hidden="true">&#9658;</span>
+              </a>
               <p>I've always loved black holes and relativity, so when I felt it was time to make a new project I thought "what about black holes?"</p>
               <p>
                 Hydrodynamics accretion disk simulation around inspiralling binary black holes. PN2.5 Expansion for black hole accelerations. Paczynski-Wiita for particle accelerations. Smoother Particle Hydrodynamics for gas simulation.
@@ -221,6 +259,7 @@
               <p>Planned/WIP: Adaptive Smoothing Length</p>
               <div class="project-links">
                 <a href="https://github.com/novacozmo/Gravity-Simulations/blob/main/Relativity/BHMerge.jl" target="_blank" rel="noopener">Code ↗</a>
+                <a href="#video-I2a5Eya_2Uo">Watch &#9658;</a>
               </div>
             </li>
           </ol>
@@ -257,7 +296,7 @@
       <h2 class="section-title"><span class="section-num">03</span> Videos</h2>
       <p class="section-lede">Recordings of my simulations.</p>
       <div class="video-grid">
-        <article class="video-card video-card-featured">
+        <article class="video-card video-card-featured" id="video-I2a5Eya_2Uo">
           <a class="video-thumb" href="https://www.youtube.com/watch?v=I2a5Eya_2Uo" data-video-id="I2a5Eya_2Uo" data-video-title="Black Hole Merger" target="_blank" rel="noopener" aria-label="Play video: Black Hole Merger">
             <img src="https://i.ytimg.com/vi/I2a5Eya_2Uo/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy">
             <span class="play-icon" aria-hidden="true">&#9658;</span>
@@ -265,7 +304,7 @@
           </a>
           <h3 class="video-title">Black Hole Merger</h3>
         </article>
-        <article class="video-card">
+        <article class="video-card" id="video-6CNZIb2N7O8">
           <a class="video-thumb" href="https://www.youtube.com/watch?v=6CNZIb2N7O8" data-video-id="6CNZIb2N7O8" data-video-title="1M Particle Galaxy Merger" target="_blank" rel="noopener" aria-label="Play video: 1M Particle Galaxy Merger">
             <img src="https://i.ytimg.com/vi/6CNZIb2N7O8/hqdefault.jpg" alt="" width="480" height="360" loading="lazy">
             <span class="play-icon" aria-hidden="true">&#9658;</span>
@@ -273,7 +312,7 @@
           </a>
           <h3 class="video-title">1M Particle Galaxy Merger</h3>
         </article>
-        <article class="video-card">
+        <article class="video-card" id="video-dekreIWrQXQ">
           <a class="video-thumb" href="https://www.youtube.com/watch?v=dekreIWrQXQ" data-video-id="dekreIWrQXQ" data-video-title="2,000,000 Particle N-Body Sim" target="_blank" rel="noopener" aria-label="Play video: 2,000,000 Particle N-Body Sim">
             <img src="https://i.ytimg.com/vi/dekreIWrQXQ/hqdefault.jpg" alt="" width="480" height="360" loading="lazy">
             <span class="play-icon" aria-hidden="true">&#9658;</span>
@@ -281,7 +320,7 @@
           </a>
           <h3 class="video-title">2,000,000 Particle N-Body Sim</h3>
         </article>
-        <article class="video-card">
+        <article class="video-card" id="video-YzGZ8e7G1Dc">
           <a class="video-thumb" href="https://www.youtube.com/watch?v=YzGZ8e7G1Dc" data-video-id="YzGZ8e7G1Dc" data-video-title="30m Resonance Simulation Run" target="_blank" rel="noopener" aria-label="Play video: 30m Resonance Simulation Run">
             <img src="https://i.ytimg.com/vi/YzGZ8e7G1Dc/hqdefault.jpg" alt="" width="480" height="360" loading="lazy">
             <span class="play-icon" aria-hidden="true">&#9658;</span>
@@ -429,6 +468,6 @@
   <p>&copy; <span id="year"></span> NovaCozmo &middot; Built with curiosity and a lot of GPU cycles.</p>
 </footer>
 
-<script src="js/main.js?v=3"></script>
+<script src="js/main.js?v=4"></script>
 </body>
 </html>

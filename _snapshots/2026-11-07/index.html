@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NovaCozmo — Astrophysics &amp; Space Engineering Portfolio</title>
+<meta name="description" content="Portfolio of an aspiring astrophysicist: GPU-accelerated N-body simulations, orbital mechanics, black hole ray tracing, and rocketry.">
+<link rel="canonical" href="https://novacozmo.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NovaCozmo">
+<meta property="og:url" content="https://novacozmo.github.io/">
+<meta property="og:title" content="NovaCozmo — Astrophysics &amp; Space Engineering Portfolio">
+<meta property="og:description" content="Portfolio of an aspiring astrophysicist: GPU-accelerated N-body simulations, orbital mechanics, black hole ray tracing, and rocketry.">
+<meta property="og:image" content="https://i.ytimg.com/vi/dekreIWrQXQ/maxresdefault.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta property="og:image:alt" content="A galaxy simulated with two million particles">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NovaCozmo — Astrophysics &amp; Space Engineering Portfolio">
+<meta name="twitter:description" content="Portfolio of an aspiring astrophysicist: GPU-accelerated N-body simulations, orbital mechanics, black hole ray tracing, and rocketry.">
+<meta name="twitter:image" content="https://i.ytimg.com/vi/dekreIWrQXQ/maxresdefault.jpg">
+<link rel="preconnect" href="https://i.ytimg.com">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=9">
+</head>
+<body>
+
+<canvas id="starfield"></canvas>
+
+<header class="site-header">
+  <nav class="nav container">
+    <a href="#top" class="logo">NOVA<span>COZMO</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#videos">Videos</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section id="top" class="hero">
+    <div class="hero-content container">
+      <div class="hero-text">
+      <p class="eyebrow">Aspiring Astrophysicist &middot; High School Student</p>
+      <h1>Building tomorrow's<br><span class="gradient-text">space science</span>, today.</h1>
+      <p class="hero-sub">
+        I'm a high schooler who codes GPU-accelerated physics simulations for fun — from
+        two-million-particle galaxy mergers to black hole ray tracing — on my way to becoming
+        an astrophysicist.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">View My Projects</a>
+        <a href="https://github.com/novacozmo" target="_blank" rel="noopener" class="btn btn-ghost">GitHub ↗</a>
+      </div>
+      </div>
+      <div class="hero-visual">
+        <a class="video-thumb" href="https://www.youtube.com/watch?v=dekreIWrQXQ" data-video-id="dekreIWrQXQ" data-video-title="2,000,000 Particle N-Body Sim" target="_blank" rel="noopener" aria-label="Play video: 2,000,000 Particle N-Body Sim">
+          <img src="https://i.ytimg.com/vi/dekreIWrQXQ/maxresdefault.jpg" alt="" width="1280" height="720" fetchpriority="high">
+          <span class="play-icon" aria-hidden="true">&#9658;</span>
+          <span class="video-duration">1:40</span>
+        </a>
+        <p class="hero-caption">2,000,000 Particle N-Body Sim</p>
+      </div>
+    </div>
+    <div class="scroll-hint" aria-hidden="true">scroll</div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title"><span class="section-num">01</span> About Me</h2>
+      <div class="about-grid">
+        <p class="about-text">
+          Hi, I'm Sathvik Nair, a high school student with a serious space obsession. It started with watching videos
+          on orbital mechanics and the Barnes-Hut algorithm, and turned into teaching myself
+          GPU-parallel programming to simulate physics most people only see in textbooks —
+          galaxy formation, planetary rings, and the bending of light near a black hole.
+          I'm also part of a rocketry team that competed at the national level. My goal is to
+          study astrophysics in college and build a career doing it — and if that path leads to
+          NASA one day, even better.
+        </p>
+        <ul class="about-facts">
+          <li><span class="fact-label">Focus</span><span>Astrophysics &amp; Orbital Mechanics</span></li>
+          <li><span class="fact-label">Tools</span><span>Python, Taichi (GPU), NumPy</span></li>
+          <li><span class="fact-label">Also on</span><span>National-level Rocketry Team</span></li>
+          <li><span class="fact-label">Goal</span><span>Become an Astrophysicist</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title"><span class="section-num">02</span> Projects</h2>
+      <p class="section-lede">
+        Grouped by area of physics &mdash; several went through multiple versions as I learned
+        more. Each entry links straight to the real code on GitHub.
+      </p>
+
+      <div class="category-list">
+
+        <article class="category-panel">
+          <div class="category-head">
+            <div class="category-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="32" cy="32" r="2" fill="currentColor" stroke="none"/>
+                <path d="M32 32 L14 20 M32 32 L50 44 M32 32 L48 18 M32 32 L16 46 M32 32 L8 32 M32 32 L56 32"/>
+                <circle cx="14" cy="20" r="1.6" fill="currentColor" stroke="none"/>
+                <circle cx="50" cy="44" r="1.6" fill="currentColor" stroke="none"/>
+                <circle cx="48" cy="18" r="1.6" fill="currentColor" stroke="none"/>
+                <circle cx="16" cy="46" r="1.6" fill="currentColor" stroke="none"/>
+                <circle cx="8" cy="32" r="1.2" fill="currentColor" stroke="none"/>
+                <circle cx="56" cy="32" r="1.2" fill="currentColor" stroke="none"/>
+              </g></svg>
+            </div>
+            <div class="category-title-group">
+              <h3>N-Body Simulations</h3>
+              <p>The N-Body problem is a general problem where particles are affected by every other particle, with forces that depend on their positions, the problem being that there is no analytical solution. In astrophysics, the most common application of N-Body is gravity.</p>
+            </div>
+            <button type="button" class="category-extra-link" data-open-dialog="devStoryDialog" aria-haspopup="dialog">Read the Dev Story &rarr;</button>
+          </div>
+
+          <ol class="timeline">
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <h4>N-Body Sim</h4>
+              <p class="project-tags">Python &middot; Barnes&ndash;Hut Algorithm &middot; Velocity Verlet</p>
+              <p>
+                My first version of an implementation of the Barnes-Hut algorithm, an N-Body algorithm that speeds up computation time from scaling by N^2 to N*log(N). Using a simple Verlet integrator to keep stability and accuracy cheaply. Made in pure python and not very optimized, more of a proof of concept, able to run a couple thousand particles at reasonable frame rates.
+              </p>
+              <div class="project-links">
+                <a href="https://github.com/novacozmo/Gravity-Simulations/blob/main/Nbody/NbodySim.py" target="_blank" rel="noopener">Code ↗</a>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <h4>BH N-Body</h4>
+              <p class="project-tags">Python &middot; Taichi (GPU) &middot; Custom Parallel Radix Sort</p>
+              <a class="project-thumb" href="#video-dekreIWrQXQ" aria-label="Watch the video: 2,000,000 Particle N-Body Sim">
+                <img src="https://i.ytimg.com/vi/dekreIWrQXQ/hqdefault.jpg" alt="" width="480" height="360" loading="lazy">
+                <span class="play-icon" aria-hidden="true">&#9658;</span>
+              </a>
+              <p>
+                A multiple months-long project using the GPU and parallel algorithms to maximize performance. While the physics and integration remained the same, the increased performance allows for millions of particles. Comes with multiple visualizer modes and a built in recorder.
+              </p>
+              <div class="project-links">
+                <a href="https://github.com/novacozmo/Gravity-Simulations/blob/main/Nbody/BarnesHutNBodySim.py" target="_blank" rel="noopener">Code ↗</a>
+                <a href="#video-dekreIWrQXQ">Watch &#9658;</a>
+              </div>
+            </li>
+          </ol>
+        </article>
+
+        <article class="category-panel">
+          <div class="category-head">
+            <div class="category-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="32" cy="32" r="9" fill="currentColor" stroke="none"/>
+                <ellipse cx="32" cy="32" rx="26" ry="8"/>
+                <ellipse cx="32" cy="32" rx="20" ry="6"/>
+              </g></svg>
+            </div>
+            <div class="category-title-group">
+              <h3>Planetary Ring Simulations</h3>
+              <p>Rings are very complex systems where orbital resonance and collisions dominate.</p>
+            </div>
+            <button type="button" class="category-extra-link" data-open-dialog="ringStoryDialog" aria-haspopup="dialog">Read the Dev Story &rarr;</button>
+          </div>
+
+          <ol class="timeline">
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <h4>Ring Sim V1</h4>
+              <p class="project-tags">Python &middot; Velocity Verlet</p>
+              <p>
+                Simulate the gravity of moons on thousands of ring particles. Has time warp, random generation, trajectories, and body creation. Uses Verlet integration for simplicity and stability during SOI changes.
+              </p>
+              <div class="project-links">
+                <a href="https://github.com/novacozmo/Gravity-Simulations/blob/main/Ringsim/Ring%20Sim.py" target="_blank" rel="noopener">Code ↗</a>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <h4>Ring Sim V2</h4>
+              <p class="project-tags">Python &middot; Taichi (GPU)</p>
+              <p>
+                A remake of the V1 using the GPU to support millions of particles, along with better UI and a run-time generation editor. Uses Verlet integration for simplicity and stability during SOI changes.
+              </p>
+              <div class="project-links">
+                <a href="https://github.com/novacozmo/Gravity-Simulations/blob/main/Ringsim/Ring%20Sim%202.py" target="_blank" rel="noopener">Code ↗</a>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <h4>Saturn Ring Sim</h4>
+              <p class="project-tags">Python &middot; Taichi (GPU) &middot; Wisdom&ndash;Holman Integration</p>
+              <a class="project-thumb" href="#video-YzGZ8e7G1Dc" aria-label="Watch the video: 30m Resonance Simulation Run">
+                <img src="https://i.ytimg.com/vi/YzGZ8e7G1Dc/hqdefault.jpg" alt="" width="480" height="360" loading="lazy">
+                <span class="play-icon" aria-hidden="true">&#9658;</span>
+              </a>
+              <p>
+                An attempt to simulate Saturn&rsquo;s rings using Wisdom Holman integration for long-term orbital stability and statistical collisions. Also has a radial density plot.
+              </p>
+              <div class="project-links">
+                <a href="https://github.com/novacozmo/Gravity-Simulations/blob/main/Ringsim/Saturn%20Ring%20Sim.py" target="_blank" rel="noopener">Code ↗</a>
+                <a href="#video-YzGZ8e7G1Dc">Watch &#9658;</a>
+              </div>
+            </li>
+          </ol>
+        </article>
+
+        <article class="category-panel">
+          <div class="category-head">
+            <div class="category-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="1.5">
+                <ellipse cx="32" cy="34" rx="27" ry="9"/>
+                <circle cx="32" cy="32" r="10" fill="currentColor" stroke="none"/>
+                <circle cx="32" cy="32" r="14"/>
+              </g></svg>
+            </div>
+            <div class="category-title-group">
+              <h3>Relativity</h3>
+            </div>
+          </div>
+
+          <ol class="timeline">
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <h4>Black Hole Renderer</h4>
+              <p class="project-tags">Python &middot; Ray Tracing &middot; Relativistic Physics</p>
+              <p>I was making some black hole art and went "Hey I could code this"</p>
+              <p>
+                A relativistic ray tracer that simulates the appearance of black holes by modeling gravitational light bending. Features procedural Worley noise, volumetric accretion disks, relativistic Doppler effects, and multi-layer render exports. Uses Verlet integration for simplicity.
+              </p>
+              <p>Planned/WIP: Procedural noise, RK integration</p>
+              <div class="project-links">
+                <a href="https://github.com/novacozmo/Gravity-Simulations/blob/main/Relativity/Black%20Hole%20Renderer%20V1" target="_blank" rel="noopener">Code ↗</a>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <h4>Black Hole Merger</h4>
+              <p class="project-tags">Julia &middot; CUDA.jl</p>
+              <a class="project-thumb" href="#video-I2a5Eya_2Uo" aria-label="Watch the video: Black Hole Merger">
+                <img src="https://i.ytimg.com/vi/I2a5Eya_2Uo/hqdefault.jpg" alt="" width="480" height="360" loading="lazy">
+                <span class="play-icon" aria-hidden="true">&#9658;</span>
+              </a>
+              <p>I've always loved black holes and relativity, so when I felt it was time to make a new project I thought "what about black holes?"</p>
+              <p>
+                Hydrodynamics accretion disk simulation around inspiralling binary black holes. PN2.5 Expansion for black hole accelerations. Paczynski-Wiita for particle accelerations. Smoother Particle Hydrodynamics for gas simulation.
+              </p>
+              <p>Planned/WIP: Adaptive Smoothing Length</p>
+              <div class="project-links">
+                <a href="https://github.com/novacozmo/Gravity-Simulations/blob/main/Relativity/BHMerge.jl" target="_blank" rel="noopener">Code ↗</a>
+                <a href="#video-I2a5Eya_2Uo">Watch &#9658;</a>
+              </div>
+            </li>
+          </ol>
+        </article>
+
+        <article class="category-panel category-panel-single category-panel-soon">
+          <div class="category-head">
+            <div class="category-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M32 6 C42 16 44 30 40 42 L24 42 C20 30 22 16 32 6 Z"/>
+                <path d="M24 42 L18 54 L26 50 Z M40 42 L46 54 L38 50 Z"/>
+                <circle cx="32" cy="24" r="4"/>
+              </g></svg>
+            </div>
+            <div class="category-title-group">
+              <h3>American Rocketry Challenge</h3>
+              <p>Design, build, and fly a model rocket to hit a precise altitude and duration target set by new national rules each year &mdash; qualified for and competed at the 2024 national finals, finishing in the top 20.</p>
+            </div>
+          </div>
+          <div class="category-single-body">
+            <p class="project-tags">Rocket Design &amp; Flight Testing &middot; Aerospace Engineering &middot; 2024</p>
+            <div class="project-links">
+              <span class="coming-soon">Photos coming soon</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="videos" class="section">
+    <div class="container">
+      <h2 class="section-title"><span class="section-num">03</span> Videos</h2>
+      <p class="section-lede">Recordings of my simulations.</p>
+      <div class="video-grid">
+        <article class="video-card video-card-featured" id="video-I2a5Eya_2Uo">
+          <a class="video-thumb" href="https://www.youtube.com/watch?v=I2a5Eya_2Uo" data-video-id="I2a5Eya_2Uo" data-video-title="Black Hole Merger" target="_blank" rel="noopener" aria-label="Play video: Black Hole Merger">
+            <img src="https://i.ytimg.com/vi/I2a5Eya_2Uo/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy">
+            <span class="play-icon" aria-hidden="true">&#9658;</span>
+            <span class="video-duration">8:04</span>
+          </a>
+          <h3 class="video-title">Black Hole Merger</h3>
+        </article>
+        <article class="video-card" id="video-6CNZIb2N7O8">
+          <a class="video-thumb" href="https://www.youtube.com/watch?v=6CNZIb2N7O8" data-video-id="6CNZIb2N7O8" data-video-title="1M Particle Galaxy Merger" target="_blank" rel="noopener" aria-label="Play video: 1M Particle Galaxy Merger">
+            <img src="https://i.ytimg.com/vi/6CNZIb2N7O8/hqdefault.jpg" alt="" width="480" height="360" loading="lazy">
+            <span class="play-icon" aria-hidden="true">&#9658;</span>
+            <span class="video-duration">1:02</span>
+          </a>
+          <h3 class="video-title">1M Particle Galaxy Merger</h3>
+        </article>
+        <article class="video-card" id="video-dekreIWrQXQ">
+          <a class="video-thumb" href="https://www.youtube.com/watch?v=dekreIWrQXQ" data-video-id="dekreIWrQXQ" data-video-title="2,000,000 Particle N-Body Sim" target="_blank" rel="noopener" aria-label="Play video: 2,000,000 Particle N-Body Sim">
+            <img src="https://i.ytimg.com/vi/dekreIWrQXQ/hqdefault.jpg" alt="" width="480" height="360" loading="lazy">
+            <span class="play-icon" aria-hidden="true">&#9658;</span>
+            <span class="video-duration">1:40</span>
+          </a>
+          <h3 class="video-title">2,000,000 Particle N-Body Sim</h3>
+        </article>
+        <article class="video-card" id="video-YzGZ8e7G1Dc">
+          <a class="video-thumb" href="https://www.youtube.com/watch?v=YzGZ8e7G1Dc" data-video-id="YzGZ8e7G1Dc" data-video-title="30m Resonance Simulation Run" target="_blank" rel="noopener" aria-label="Play video: 30m Resonance Simulation Run">
+            <img src="https://i.ytimg.com/vi/YzGZ8e7G1Dc/hqdefault.jpg" alt="" width="480" height="360" loading="lazy">
+            <span class="play-icon" aria-hidden="true">&#9658;</span>
+            <span class="video-duration">3:55</span>
+          </a>
+          <h3 class="video-title">30m Resonance Simulation Run</h3>
+        </article>
+      </div>
+      <p class="video-more">
+        <a href="https://www.youtube.com/@Novacozmo" target="_blank" rel="noopener" class="btn btn-ghost">Watch more on YouTube &nearr;</a>
+      </p>
+    </div>
+  </section>
+
+  <section id="contact" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title"><span class="section-num">04</span> Get In Touch</h2>
+      <p class="section-lede">
+        Interested in the projects, or want to collaborate? Reach out &mdash; I'm Sathvik, the
+        person behind NovaCozmo.
+      </p>
+      <div class="contact-links">
+        <a href="https://github.com/novacozmo" target="_blank" rel="noopener" class="contact-pill">GitHub</a>
+        <a href="https://www.youtube.com/@Novacozmo" target="_blank" rel="noopener" class="contact-pill">YouTube</a>
+        <a href="mailto:sathvik.nair@outlook.com" class="contact-pill">Email</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<dialog id="devStoryDialog" class="story-dialog">
+  <div class="story-dialog-inner">
+    <button type="button" class="dialog-close" data-close-dialog aria-label="Close">&times;</button>
+    <p class="dialog-eyebrow">Dev Story &middot; N-Body Simulations</p>
+    <h3>How I Broke (and Fixed) a 2-Million-Particle Galaxy Sim</h3>
+    <p>
+      I started making N Body sims after watching <a href="https://www.youtube.com/watch?v=nZHjD3cI-EU" target="_blank" rel="noopener">Deadlock's video</a> on the Barnes Hut Algorithm.
+      I started with pure python making an object-based tree that used recursive division to be created.
+      It was incredibly slow and had many artifacts due to the high theta I had to use to get any reasonable performance.
+    </p>
+    <p>
+      Then, after discovering Taichi, I decided to take a more parallel approach.
+      A lot of the later work on the sim was created in my AP Computer Science Principles class for the AP performance task.
+      I started by making a binary radix tree as that&rsquo;s friendly to both storage and speed.
+      Binary radix trees can be constructed completely in parallel and always have exactly 2N-1 nodes which was very nice since Taichi dynamically sized fields are extremely slow.
+      At first when I realized I needed sorted Morton codes I tried making my very own radix sort, but upon failing multiple times I ended up using Taichi&rsquo;s parallel_sort().
+    </p>
+    <p>
+      From there it was relatively easy to compute forces.
+      After creating the physics, I then created a density based visualizer.
+      I did this by adding a number to the pixel (and the surrounding pixels) a particle occupies then applying a function to get the brightness and color.
+      At the time I was quite happy with it running 100,000 particles at roughly 20fps.
+      This was around the time I submitted it to the AP Performance Task.
+    </p>
+    <p>
+      I then took a break from N-body to work on RingSimV2 for my AP CSP Game Jam.
+      Only recently, in late July, I returned unsatisfied by the performance.
+      The motivation for this was mostly due to Deadlock&rsquo;s video where they made a simulation that ran with millions of particles.
+      I ran some tests and added Taichi&rsquo;s built in function profiler and found that the sort I was using to sort the Morton codes was taking hundreds of milliseconds to sort at higher N.
+      When I looked into it, I saw that the sort I was using used a modified even-odd sort with 190 serial stages per sort.
+      This was extremely slow, so I returned to making a radix sort.
+      When I ran some tests on it, it showed ~26ms sort time for N=1,000,000!
+      I plugged it into the sim (and after a couple hiccups), it ran like a charm.
+      I was now running 500,000 particles at a very acceptable framerate.
+    </p>
+    <p>
+      But with how well my program scaled I thought that I could go higher.
+      But upon trying N=1,000,000, it seemed gravity just turned off.
+      There were no errors, no NaNs I could see, and no problems I could find with my force or tree functions.
+      So, I let it be for a while.
+    </p>
+    <blockquote>
+      When I showed my family my new snazzy simulation, my sister asked how much I could do. When I told her something broke at 1,000,000, she suggested we find exactly what N it would break. We did a bit of a manual binary search and found that at exactly N=809,551 the sim broke.
+    </blockquote>
+    <p>
+      Newly motivated to solve this, I did a lot of digging and I found a NaN in the root node&rsquo;s mass, and upon looking at its children, found that one of them contained a NaN&rsquo;d position that broke the tree creation.
+      After a lot of searching, I figured out what had happened.
+      Taichi&rsquo;s random() function is deterministic, and since I used that for initializing positions, any given particle would be the exact same position every time you ran a sim with the same parameters.
+      Turns out at exactly N=809,551 the random() function gives a 0 for both x and y in the positions.
+      A faulty While loop check allowed this to pass through and suddenly the particle was 0 units from the center.
+      When it tried to find the velocity, it divides by r and dividing by 0 gave a NaN.
+      This then infected the tree and when a particle tried to see if a node was close enough, nothing ever returned True because the node Center Of Mass (COM) positions were always a NaN.
+      So, in effect, it turned gravity off.
+    </p>
+    <p>
+      Another bug then presented itself when I updated the initializer to give galaxies their own speeds.
+      Their cores were being nailed to a spot!
+      When I looked into it further, I realized the mistake was that I did a position half step for the Verlet integration after the tree was built.
+      This allowed particles and even galaxy cores to gravitate towards their past selves, and with a dense enough region its past self&rsquo;s gravity overpowered the gravity of anything else.
+      All it took was moving the first position half step to before tree creation and galaxies could move.
+    </p>
+    <p>
+      After all that work, I broke the 1,000,000 particle barrier.
+      It runs ~15fps with N=2,000,000 and the frame time scales roughly O(nlogn) as expected [see <a href="https://www.desmos.com/calculator/xfcfxqrpbl" target="_blank" rel="noopener">graph</a>].
+      I&rsquo;ve learned a lot from this program including how to make parallel functions and algorithms, work with the GPU, and even some behaviors of 2d gravity simulations.
+      But I think, at least for now, I have finished this program.
+    </p>
+  </div>
+</dialog>
+
+<dialog id="ringStoryDialog" class="story-dialog">
+  <div class="story-dialog-inner">
+    <button type="button" class="dialog-close" data-close-dialog aria-label="Close">&times;</button>
+    <p class="dialog-eyebrow">Dev Story &middot; Planetary Ring Simulations</p>
+    <h3>The Ring Sim Story</h3>
+    <p>
+      I started making RingSimV1 a bit after my first version of my N-Body sim.
+      I used NumPy to compute the major Body-particle forces quickly, and I was satisfied with its speed.
+      I added features that I felt like adding, and it started to turn into this little sandbox game.
+      I started with adding bodies you can create and throw at the ring system. I then added randomized generation for rings and moons.
+    </p>
+    <p>
+      A while later, after discovering Taichi, I realized there&rsquo;s a lot more to ring systems.
+      Particle collisions, and even the tiny force of gravity between ring particles, affected entire ring systems.
+      The timescales real rings evolved at was also a problem. Verlet integration isn&rsquo;t very stable with high delta time.
+      For this new project for more accurate rings, I used a Wisdom Holman integrator.
+    </p>
+    <p>
+      In essence, WH integration finds the 2-body orbit of a particle around the central body (like the sun, or in this case Saturn) and moves it analytically along that orbit.
+      This makes WH integration extremely stable with very large timesteps.
+      That said, doing this integration efficiently is&hellip; a pain to say the least.
+      This was due to the fact that you need to get the orbit of every particle from just its position and velocity.
+    </p>
+    <p>
+      I then used statistical collisions in radial/azimuth bins.
+      These bins basically divide space into rings and then divide those rings into segments.
+      Then, using the density, I would do statistical collisions.
+      The collisions didn&rsquo;t work very well, but the visible resonances you would see forming over long durations were satisfying.
+    </p>
+    <p>
+      I took a long break from rings to work on my parallel Barnes Hut N-Body sim after this, but I came back for the game jam in my AP Computer Science Principles class.
+    </p>
+    <blockquote>
+      The theme was &ldquo;the sun, the moon, the stars,&rdquo; so it was a perfect fit. I remade my RingSimV1 with Taichi, making it able to handle tens of millions of particles without breaking a sweat. I was just a little too late to add the velocity-based color visualizer which really made the visuals so much better, but it still got the &ldquo;most ambitious&rdquo; award from my teacher, so I was happy.
+    </blockquote>
+    <p>
+      I then added a version with collisions and N-Body, patching in the Barnes Hut N-Body sim and reusing the quadtree to find collision candidates.
+      It worked okay, but it was pretty slow and the clumps of particles were a bit awkward.
+      Since then, I've only really worked on optimizing and adding more features to my Barnes Hut N-Body sim, but maybe I'll come back to this and make an even more accurate simulator.
+    </p>
+  </div>
+</dialog>
+
+<footer class="site-footer">
+  <p>&copy; <span id="year"></span> NovaCozmo &middot; Built with curiosity and a lot of GPU cycles.</p>
+</footer>
+
+<script src="js/main.js?v=4"></script>
+</body>
+</html>

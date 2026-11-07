@@ -15,7 +15,9 @@
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
 
 body {
   margin: 0;
@@ -85,6 +87,12 @@ a { color: inherit; }
   transition: color 0.2s;
 }
 .nav-links a:hover { color: var(--accent); }
+.nav-links a.active {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 8px;
+}
 
 .nav-toggle {
   display: none;
@@ -604,4 +612,122 @@ dialog.story-dialog::backdrop {
   }
   .nav-links.open { transform: translateY(0); }
   .nav-toggle { display: flex; }
+}
+
+/* Accessibility: skip link and visible keyboard focus */
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 200;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #05060f;
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-250%);
+}
+.skip-link:focus { transform: translateY(0); }
+main:focus { outline: none; }
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Growth strip (N-Body panel) */
+.growth {
+  margin: 0 0 2rem;
+  padding: 1.1rem 1.25rem 1rem;
+  border: 1px solid var(--surface-border);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+}
+.growth-title {
+  margin: 0 0 0.9rem;
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.growth-list { list-style: none; margin: 0; padding: 0; }
+.growth-row {
+  display: grid;
+  grid-template-columns: 10rem 1fr 12.5rem;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.35rem 0;
+}
+.growth-count {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.growth-bar {
+  display: block;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+.growth-bar span {
+  display: block;
+  width: var(--w);
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  transform-origin: left center;
+}
+.growth-note { color: var(--text-dim); font-size: 0.82rem; }
+.growth-axis {
+  margin: 0.7rem 0 0;
+  color: var(--text-dim);
+  font-size: 0.72rem;
+  opacity: 0.8;
+}
+/* Bars start empty only when scripting is on, then fill when scrolled into view. */
+.js .growth-bar span { transform: scaleX(0); }
+.js .growth.in-view .growth-bar span {
+  transform: scaleX(1);
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--i) * 140ms);
+}
+
+/* Story dialogs: copy-link button */
+.dialog-actions { margin: 1.5rem 0 0; }
+.dialog-copy {
+  padding: 0.55rem 1rem;
+  border: 1px solid var(--surface-border);
+  border-radius: 8px;
+  background: none;
+  color: var(--text);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.dialog-copy:hover { border-color: var(--accent); }
+.story-dialog-inner .dialog-actions { color: inherit; }
+
+/* Respect "reduce motion": no hover lifts, no bar animation */
+@media (prefers-reduced-motion: reduce) {
+  .btn:hover,
+  .video-thumb:hover,
+  .video-thumb:focus-visible { transform: none; }
+  .js .growth.in-view .growth-bar span { transition: none; }
+}
+
+@media (max-width: 780px) {
+  .growth-row {
+    grid-template-columns: 1fr auto;
+    grid-template-areas: "count note" "bar bar";
+    gap: 0.35rem 1rem;
+  }
+  .growth-count { grid-area: count; }
+  .growth-note { grid-area: note; text-align: right; }
+  .growth-bar { grid-area: bar; }
 }

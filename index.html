@@ -24,9 +24,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=9">
+<script>document.documentElement.className += ' js';</script>
+<link rel="stylesheet" href="css/style.css?v=10">
 </head>
 <body>
+
+<a class="skip-link" href="#main">Skip to content</a>
 
 <canvas id="starfield"></canvas>
 
@@ -45,7 +48,7 @@
   </nav>
 </header>
 
-<main>
+<main id="main" tabindex="-1">
   <section id="top" class="hero">
     <div class="hero-content container">
       <div class="hero-text">
@@ -126,6 +129,33 @@
             </div>
             <button type="button" class="category-extra-link" data-open-dialog="devStoryDialog" aria-haspopup="dialog">Read the Dev Story &rarr;</button>
           </div>
+
+          <figure class="growth">
+            <figcaption class="growth-title">Particle count over time</figcaption>
+            <ol class="growth-list">
+              <li class="growth-row" style="--w: 8.7%; --i: 0">
+                <span class="growth-count">A couple thousand</span>
+                <span class="growth-bar" aria-hidden="true"><span></span></span>
+                <span class="growth-note">reasonable frame rates</span>
+              </li>
+              <li class="growth-row" style="--w: 57.5%; --i: 1">
+                <span class="growth-count">100,000</span>
+                <span class="growth-bar" aria-hidden="true"><span></span></span>
+                <span class="growth-note">roughly 20fps</span>
+              </li>
+              <li class="growth-row" style="--w: 77.6%; --i: 2">
+                <span class="growth-count">500,000</span>
+                <span class="growth-bar" aria-hidden="true"><span></span></span>
+                <span class="growth-note">a very acceptable framerate</span>
+              </li>
+              <li class="growth-row" style="--w: 94.9%; --i: 3">
+                <span class="growth-count">2,000,000</span>
+                <span class="growth-bar" aria-hidden="true"><span></span></span>
+                <span class="growth-note">~15fps</span>
+              </li>
+            </ol>
+            <p class="growth-axis">Bars use a log scale</p>
+          </figure>
 
           <ol class="timeline">
             <li class="timeline-item">
@@ -351,7 +381,7 @@
   </section>
 </main>
 
-<dialog id="devStoryDialog" class="story-dialog">
+<dialog id="devStoryDialog" class="story-dialog" data-hash="story-nbody">
   <div class="story-dialog-inner">
     <button type="button" class="dialog-close" data-close-dialog aria-label="Close">&times;</button>
     <p class="dialog-eyebrow">Dev Story &middot; N-Body Simulations</p>
@@ -418,10 +448,11 @@
       I&rsquo;ve learned a lot from this program including how to make parallel functions and algorithms, work with the GPU, and even some behaviors of 2d gravity simulations.
       But I think, at least for now, I have finished this program.
     </p>
+    <p class="dialog-actions"><button type="button" class="dialog-copy" data-copy-link>Copy link to this story</button></p>
   </div>
 </dialog>
 
-<dialog id="ringStoryDialog" class="story-dialog">
+<dialog id="ringStoryDialog" class="story-dialog" data-hash="story-rings">
   <div class="story-dialog-inner">
     <button type="button" class="dialog-close" data-close-dialog aria-label="Close">&times;</button>
     <p class="dialog-eyebrow">Dev Story &middot; Planetary Ring Simulations</p>
@@ -461,6 +492,7 @@
       It worked okay, but it was pretty slow and the clumps of particles were a bit awkward.
       Since then, I've only really worked on optimizing and adding more features to my Barnes Hut N-Body sim, but maybe I'll come back to this and make an even more accurate simulator.
     </p>
+    <p class="dialog-actions"><button type="button" class="dialog-copy" data-copy-link>Copy link to this story</button></p>
   </div>
 </dialog>
 
@@ -468,6 +500,6 @@
   <p>&copy; <span id="year"></span> NovaCozmo &middot; Built with curiosity and a lot of GPU cycles.</p>
 </footer>
 
-<script src="js/main.js?v=4"></script>
+<script src="js/main.js?v=5"></script>
 </body>
 </html>

@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=6">
+<link rel="stylesheet" href="css/style.css?v=7">
 </head>
 <body>
 
@@ -142,6 +142,7 @@
               <h3>Planetary Ring Simulations</h3>
               <p>Rings are very complex systems where orbital resonance and collisions dominate.</p>
             </div>
+            <button type="button" class="category-extra-link" data-open-dialog="ringStoryDialog" aria-haspopup="dialog">Read the Dev Story &rarr;</button>
           </div>
 
           <ol class="timeline">
@@ -350,6 +351,49 @@
       It runs ~15fps with N=2,000,000 and the frame time scales roughly O(nlogn) as expected [see <a href="https://www.desmos.com/calculator/xfcfxqrpbl" target="_blank" rel="noopener">graph</a>].
       I&rsquo;ve learned a lot from this program including how to make parallel functions and algorithms, work with the GPU, and even some behaviors of 2d gravity simulations.
       But I think, at least for now, I have finished this program.
+    </p>
+  </div>
+</dialog>
+
+<dialog id="ringStoryDialog" class="story-dialog">
+  <div class="story-dialog-inner">
+    <button type="button" class="dialog-close" data-close-dialog aria-label="Close">&times;</button>
+    <p class="dialog-eyebrow">Dev Story &middot; Planetary Ring Simulations</p>
+    <h3>The Ring Sim Story</h3>
+    <p>
+      I started making RingSimV1 a bit after my first version of my N-Body sim.
+      I used NumPy to compute the major Body-particle forces quickly, and I was satisfied with its speed.
+      I added features that I felt like adding, and it started to turn into this little sandbox game.
+      I started with adding bodies you can create and throw at the ring system. I then added randomized generation for rings and moons.
+    </p>
+    <p>
+      A while later, after discovering Taichi, I realized there&rsquo;s a lot more to ring systems.
+      Particle collisions, and even the tiny force of gravity between ring particles, affected entire ring systems.
+      The timescales real rings evolved at was also a problem. Verlet integration isn&rsquo;t very stable with high delta time.
+      For this new project for more accurate rings, I used a Wisdom Holman integrator.
+    </p>
+    <p>
+      In essence, WH integration finds the 2-body orbit of a particle around the central body (like the sun, or in this case Saturn) and moves it analytically along that orbit.
+      This makes WH integration extremely stable with very large timesteps.
+      That said, doing this integration efficiently is&hellip; a pain to say the least.
+      This was due to the fact that you need to get the orbit of every particle from just its position and velocity.
+    </p>
+    <p>
+      I then used statistical collisions in radial/azimuth bins.
+      These bins basically divide space into rings and then divide those rings into segments.
+      Then, using the density, I would do statistical collisions.
+      The collisions didn&rsquo;t work very well, but the visible resonances you would see forming over long durations were satisfying.
+    </p>
+    <p>
+      I took a long break from rings to work on my parallel Barnes Hut N-Body sim after this, but I came back for the game jam in my AP Computer Science Principles class.
+      The theme was &ldquo;the sun, the moon, the stars,&rdquo; so it was a perfect fit.
+      I remade my RingSimV1 with Taichi, making it able to handle tens of millions of particles without breaking a sweat.
+      I was just a little too late to add the velocity-based color visualizer which really made the visuals so much better, but it still got the &ldquo;most ambitious&rdquo; award from my teacher, so I was happy.
+    </p>
+    <p>
+      I then added a version with collisions and N-Body, patching in the Barnes Hut N-Body sim and reusing the quadtree to find collision candidates.
+      It worked okay, but it was pretty slow and the clumps of particles were a bit awkward.
+      Since then, I've only really worked on optimizing and adding more features to my Barnes Hut N-Body sim, but maybe I'll come back to this and make an even more accurate simulator.
     </p>
   </div>
 </dialog>

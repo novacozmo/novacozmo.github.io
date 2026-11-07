@@ -89,17 +89,24 @@ syncDialogsToHash(); // deep link on page load
 // "Copy link" inside the story dialogs.
 document.querySelectorAll('[data-copy-link]').forEach(btn => {
   if (!navigator.clipboard) { btn.hidden = true; return; }
-  const label = btn.textContent;
+  const labelEl = btn.querySelector('.dialog-copy-label');
+  const label = labelEl.textContent;
+  let resetTimer;
   btn.addEventListener('click', async () => {
     const dialog = btn.closest('dialog');
     const url = location.origin + location.pathname + '#' + dialog.dataset.hash;
     try {
       await navigator.clipboard.writeText(url);
-      btn.textContent = 'Link copied';
+      labelEl.textContent = 'Link copied';
+      btn.classList.add('copied');
     } catch {
-      btn.textContent = 'Copy the link from the address bar';
+      labelEl.textContent = 'Copy from the address bar';
     }
-    setTimeout(() => { btn.textContent = label; }, 2000);
+    clearTimeout(resetTimer);
+    resetTimer = setTimeout(() => {
+      labelEl.textContent = label;
+      btn.classList.remove('copied');
+    }, 2000);
   });
 });
 

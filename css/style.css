@@ -697,21 +697,37 @@ button:focus-visible {
 }
 
 /* Story dialogs: copy-link button */
-.dialog-actions { margin: 1.5rem 0 0; }
+.story-dialog-inner .dialog-actions { margin: 0 0 1.5rem; color: inherit; }
 .dialog-copy {
-  padding: 0.55rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.85rem;
   border: 1px solid var(--surface-border);
   border-radius: 8px;
   background: none;
   color: var(--text);
   font: inherit;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 600;
   cursor: pointer;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, color 0.2s;
 }
 .dialog-copy:hover { border-color: var(--accent); }
-.story-dialog-inner .dialog-actions { color: inherit; }
+.dialog-copy .icon {
+  width: 16px;
+  height: 16px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.dialog-copy .icon-check { display: none; }
+.dialog-copy.copied { border-color: var(--accent); color: var(--accent); }
+.dialog-copy.copied .icon-link { display: none; }
+.dialog-copy.copied .icon-check { display: block; }
 
 /* Respect "reduce motion": no hover lifts, no bar animation */
 @media (prefers-reduced-motion: reduce) {

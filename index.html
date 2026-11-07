@@ -25,7 +25,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script>document.documentElement.className += ' js';</script>
-<link rel="stylesheet" href="css/style.css?v=10">
+<link rel="stylesheet" href="css/style.css?v=11">
 </head>
 <body>
 
@@ -386,14 +386,16 @@
     <button type="button" class="dialog-close" data-close-dialog aria-label="Close">&times;</button>
     <p class="dialog-eyebrow">Dev Story &middot; N-Body Simulations</p>
     <h3>How I Broke (and Fixed) a 2-Million-Particle Galaxy Sim</h3>
+    <p class="dialog-actions"><button type="button" class="dialog-copy" data-copy-link><svg class="icon icon-link" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg><svg class="icon icon-check" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span class="dialog-copy-label" aria-live="polite">Copy link</span></button></p>
     <p>
       I started making N Body sims after watching <a href="https://www.youtube.com/watch?v=nZHjD3cI-EU" target="_blank" rel="noopener">Deadlock's video</a> on the Barnes Hut Algorithm.
       I started with pure python making an object-based tree that used recursive division to be created.
       It was incredibly slow and had many artifacts due to the high theta I had to use to get any reasonable performance.
     </p>
+    <blockquote>
+      Then, after discovering Taichi, I decided to take a more parallel approach. A lot of the later work on the sim was created in my AP Computer Science Principles class for the AP performance task.
+    </blockquote>
     <p>
-      Then, after discovering Taichi, I decided to take a more parallel approach.
-      A lot of the later work on the sim was created in my AP Computer Science Principles class for the AP performance task.
       I started by making a binary radix tree as that&rsquo;s friendly to both storage and speed.
       Binary radix trees can be constructed completely in parallel and always have exactly 2N-1 nodes which was very nice since Taichi dynamically sized fields are extremely slow.
       At first when I realized I needed sorted Morton codes I tried making my very own radix sort, but upon failing multiple times I ended up using Taichi&rsquo;s parallel_sort().
@@ -440,15 +442,14 @@
       Their cores were being nailed to a spot!
       When I looked into it further, I realized the mistake was that I did a position half step for the Verlet integration after the tree was built.
       This allowed particles and even galaxy cores to gravitate towards their past selves, and with a dense enough region its past self&rsquo;s gravity overpowered the gravity of anything else.
-      All it took was moving the first position half step to before tree creation and galaxies could move.
     </p>
+    <blockquote>
+      All it took was moving the first position half step to before tree creation and galaxies could move. After all that work, I broke the 1,000,000 particle barrier. It runs ~15fps with N=2,000,000 and the frame time scales roughly O(nlogn) as expected [see <a href="https://www.desmos.com/calculator/xfcfxqrpbl" target="_blank" rel="noopener">graph</a>].
+    </blockquote>
     <p>
-      After all that work, I broke the 1,000,000 particle barrier.
-      It runs ~15fps with N=2,000,000 and the frame time scales roughly O(nlogn) as expected [see <a href="https://www.desmos.com/calculator/xfcfxqrpbl" target="_blank" rel="noopener">graph</a>].
       I&rsquo;ve learned a lot from this program including how to make parallel functions and algorithms, work with the GPU, and even some behaviors of 2d gravity simulations.
       But I think, at least for now, I have finished this program.
     </p>
-    <p class="dialog-actions"><button type="button" class="dialog-copy" data-copy-link>Copy link to this story</button></p>
   </div>
 </dialog>
 
@@ -457,6 +458,7 @@
     <button type="button" class="dialog-close" data-close-dialog aria-label="Close">&times;</button>
     <p class="dialog-eyebrow">Dev Story &middot; Planetary Ring Simulations</p>
     <h3>The Ring Sim Story</h3>
+    <p class="dialog-actions"><button type="button" class="dialog-copy" data-copy-link><svg class="icon icon-link" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg><svg class="icon icon-check" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span class="dialog-copy-label" aria-live="polite">Copy link</span></button></p>
     <p>
       I started making RingSimV1 a bit after my first version of my N-Body sim.
       I used NumPy to compute the major Body-particle forces quickly, and I was satisfied with its speed.
@@ -492,7 +494,6 @@
       It worked okay, but it was pretty slow and the clumps of particles were a bit awkward.
       Since then, I've only really worked on optimizing and adding more features to my Barnes Hut N-Body sim, but maybe I'll come back to this and make an even more accurate simulator.
     </p>
-    <p class="dialog-actions"><button type="button" class="dialog-copy" data-copy-link>Copy link to this story</button></p>
   </div>
 </dialog>
 
@@ -500,6 +501,6 @@
   <p>&copy; <span id="year"></span> NovaCozmo &middot; Built with curiosity and a lot of GPU cycles.</p>
 </footer>
 
-<script src="js/main.js?v=5"></script>
+<script src="js/main.js?v=6"></script>
 </body>
 </html>

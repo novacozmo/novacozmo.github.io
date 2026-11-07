@@ -655,25 +655,39 @@ button:focus-visible {
 .growth-list { list-style: none; margin: 0; padding: 0; }
 .growth-row {
   display: grid;
-  grid-template-columns: 10rem 1fr 12.5rem;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.35rem 0;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: "stage stat" "bar bar";
+  align-items: baseline;
+  gap: 0.4rem 1.5rem;
+  padding: 0.6rem 0;
 }
-.growth-count {
-  font-family: var(--font-display);
-  font-size: 0.85rem;
-  font-weight: 700;
+.growth-row + .growth-row { border-top: 1px solid rgba(255, 255, 255, 0.05); }
+.growth-stage {
+  grid-area: stage;
+  font-size: 0.9rem;
+  font-weight: 600;
   color: var(--text);
 }
+.growth-stat {
+  grid-area: stat;
+  max-width: 24rem;
+  text-align: right;
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
 .growth-bar {
+  grid-area: bar;
+  position: relative;
   display: block;
   height: 10px;
+  margin-top: 0.15rem;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.06);
   overflow: hidden;
 }
 .growth-bar span {
+  position: relative;
   display: block;
   width: var(--w);
   height: 100%;
@@ -681,7 +695,8 @@ button:focus-visible {
   background: linear-gradient(90deg, var(--accent), var(--accent-2));
   transform-origin: left center;
 }
-.growth-note { color: var(--text-dim); font-size: 0.82rem; }
+/* A row with no stage name of its own continues the step above it. */
+.growth-row + .growth-row-cont { border-top: 0; padding-top: 0; }
 .growth-axis {
   margin: 0.7rem 0 0;
   color: var(--text-dim);
@@ -739,11 +754,9 @@ button:focus-visible {
 
 @media (max-width: 780px) {
   .growth-row {
-    grid-template-columns: 1fr auto;
-    grid-template-areas: "count note" "bar bar";
-    gap: 0.35rem 1rem;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "stage" "stat" "bar";
+    gap: 0.25rem;
   }
-  .growth-count { grid-area: count; }
-  .growth-note { grid-area: note; text-align: right; }
-  .growth-bar { grid-area: bar; }
+  .growth-stat { max-width: none; text-align: left; }
 }

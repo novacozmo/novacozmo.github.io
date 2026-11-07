@@ -25,7 +25,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script>document.documentElement.className += ' js';</script>
-<link rel="stylesheet" href="css/style.css?v=11">
+<link rel="stylesheet" href="css/style.css?v=13">
 </head>
 <body>
 
@@ -134,24 +134,28 @@
             <figcaption class="growth-title">Particle count over time</figcaption>
             <ol class="growth-list">
               <li class="growth-row" style="--w: 8.7%; --i: 0">
-                <span class="growth-count">A couple thousand</span>
+                <span class="growth-stage">pure python</span>
+                <span class="growth-stat">N=couple thousand, reasonable frame rate (30+)</span>
                 <span class="growth-bar" aria-hidden="true"><span></span></span>
-                <span class="growth-note">reasonable frame rates</span>
               </li>
               <li class="growth-row" style="--w: 57.5%; --i: 1">
-                <span class="growth-count">100,000</span>
+                <span class="growth-stage">Taichi+Binary Radix Tree</span>
+                <span class="growth-stat">N=100,000, 20-30fps</span>
                 <span class="growth-bar" aria-hidden="true"><span></span></span>
-                <span class="growth-note">roughly 20fps</span>
               </li>
               <li class="growth-row" style="--w: 77.6%; --i: 2">
-                <span class="growth-count">500,000</span>
+                <span class="growth-stage">Taichi+Binary Radix Tree + Radix Sorting</span>
+                <span class="growth-stat">N=500,000, 27fps</span>
                 <span class="growth-bar" aria-hidden="true"><span></span></span>
-                <span class="growth-note">a very acceptable framerate</span>
               </li>
-              <li class="growth-row" style="--w: 94.9%; --i: 3">
-                <span class="growth-count">2,000,000</span>
+              <li class="growth-row" style="--w: 83.5%; --i: 3">
+                <span class="growth-stage">Taichi+Binary Radix Tree + Radix sorting + Gravity bug patched</span>
+                <span class="growth-stat">N&gt;800,000, ~25fps</span>
                 <span class="growth-bar" aria-hidden="true"><span></span></span>
-                <span class="growth-note">~15fps</span>
+              </li>
+              <li class="growth-row growth-row-cont" style="--w: 94.9%; --i: 4">
+                <span class="growth-stat">N=2,000,000, ~15fps</span>
+                <span class="growth-bar" aria-hidden="true"><span></span></span>
               </li>
             </ol>
             <p class="growth-axis">Bars use a log scale</p>

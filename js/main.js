@@ -124,8 +124,8 @@ if (growth) {
 }
 
 // Videos: click-to-play. The YouTube player only loads when a thumbnail is clicked,
-// so visiting the page doesn't contact YouTube's player. Without JS the thumbnail
-// is a normal link to the video on YouTube.
+// so visiting the page doesn't contact YouTube's player. The thumbnails are plain
+// buttons, so there is no link out to YouTube anywhere in the page itself.
 let activeVideo = null;
 document.querySelectorAll('.video-thumb').forEach(link => {
   link.addEventListener('click', e => {
@@ -135,7 +135,7 @@ document.querySelectorAll('.video-thumb').forEach(link => {
     frame.className = 'video-embed';
     const iframe = document.createElement('iframe');
     iframe.src = 'https://www.youtube-nocookie.com/embed/' +
-      encodeURIComponent(link.dataset.videoId) + '?autoplay=1&rel=0';
+      encodeURIComponent(link.dataset.videoId) + '?autoplay=1&rel=0&playsinline=1';
     iframe.title = link.dataset.videoTitle;
     iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
     iframe.allowFullscreen = true;

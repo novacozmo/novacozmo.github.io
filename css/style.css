@@ -530,7 +530,14 @@ dialog.story-dialog::backdrop {
   margin: 0.75rem 0 0;
 }
 .video-card-featured .video-title { font-size: 1.15rem; }
-.video-more { margin: 2.25rem 0 0; }
+/* Thumbnails are buttons (no link to YouTube): reset the default button look. */
+button.video-thumb {
+  width: 100%;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
 .video-card { scroll-margin-top: 90px; }
 
 /* Project thumbnails (jump to the matching video) */
